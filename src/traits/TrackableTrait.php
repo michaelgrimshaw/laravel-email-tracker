@@ -1,6 +1,6 @@
 <?php
 
-namespace MichaelGrimshaw\MailTracker;
+namespace MichaelGrimshaw\MailTracker\traits;
 
 /**
  * Trait TrackableTrait
