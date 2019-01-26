@@ -3,6 +3,7 @@
 namespace MichaelGrimshaw\MailTracker\Stats;
 
 use Carbon\Carbon;
+use MichaelGrimshaw\MailTracker\TrackedMail;
 
 /**
  * Class MailTrackerStats
