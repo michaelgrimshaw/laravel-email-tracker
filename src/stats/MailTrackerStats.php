@@ -42,8 +42,6 @@ class MailTrackerStats
             'from'   => Carbon::now()->subDay(),
             'to' => Carbon::now()
         ];
-
-        $this->collection = new EmailStatsCollection();
     }
 
     /**
@@ -259,6 +257,7 @@ class MailTrackerStats
      */
     public function get()
     {
+        $this->setCollection();
         $this->setQuery();
 
         $emails = $this->query->get();
@@ -278,6 +277,7 @@ class MailTrackerStats
      */
     public function getDays()
     {
+        $this->setCollection();
         $this->setQuery();
 
         $emails = $this->query->get();
@@ -295,6 +295,7 @@ class MailTrackerStats
      */
     public function getMonths()
     {
+        $this->setCollection();
         $this->setQuery();
 
         $emails = $this->query->get();
@@ -312,6 +313,7 @@ class MailTrackerStats
      */
     public function getYears()
     {
+        $this->setCollection();
         $this->setQuery();
 
         $emails = $this->query->get();
@@ -544,5 +546,16 @@ class MailTrackerStats
         ];
 
         return $this;
+    }
+
+
+    /**
+     * Sets a new instance of EmailStatsCollection.
+     *
+     * @return void
+     */
+    private function setCollection()
+    {
+        $this->collection = new EmailStatsCollection();
     }
 }
