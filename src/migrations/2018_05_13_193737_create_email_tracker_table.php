@@ -28,7 +28,7 @@ class CreateEmailTrackerTable extends Migration
             $table->string('mail_class');
             $table->timestamps();
 
-            $table->index('tracker_id', 'recipient_id', 'recipient_type', 'linked_to_id', 'linked_to_type');
+            $table->index(['tracker_id', 'recipient_id', 'recipient_type', 'linked_to_id', 'linked_to_type']);
         });
     }
 

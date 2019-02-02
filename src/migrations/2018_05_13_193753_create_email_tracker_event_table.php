@@ -28,7 +28,7 @@ class CreateEmailTrackerEventTable extends Migration
                 ->on(config('mailtracker.table_names.email_tracker'))
                 ->onDelete('cascade');
 
-            $table->index(config('mailtracker.table_names.email_tracker') . '_id', 'status');
+            $table->index([config('mailtracker.table_names.email_tracker') . '_id', 'status']);
         });
     }
 
