@@ -30,7 +30,13 @@ class MailTracker extends Mailer
     public function __construct(Factory $views, Swift_Mailer $swift, Dispatcher $events = null)
     {
         parent::__construct($views, $swift, $events);
-
+    }
+    
+    /**
+     * @return void
+     */
+    protected function setTracker()
+    {
         $this->tracker = new stdClass;
 
         $this->tracker->enabled        = true;
@@ -38,6 +44,8 @@ class MailTracker extends Mailer
         $this->tracker->category       = null;
         $this->tracker->linked_to_id   = null;
         $this->tracker->linked_to_type = null;
+        $this->tracker->mail_class     = null;
+        $this->tracker->recipients     = [];
     }
 
     /**
@@ -48,6 +56,7 @@ class MailTracker extends Mailer
      */
     public function to($users)
     {
+        $this->setTracker();
         return (new PendingTrackedMail($this))->to($users);
     }
 
@@ -59,6 +68,7 @@ class MailTracker extends Mailer
      */
     public function bcc($users)
     {
+        $this->setTracker();
         return (new PendingTrackedMail($this))->bcc($users);
     }
 
