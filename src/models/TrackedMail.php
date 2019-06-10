@@ -152,6 +152,20 @@ class TrackedMail extends Model
     {
         return $query->where($this->getTable() . '.mail_class', $mailClass);
     }
+    
+    /**
+     * Scope to get all mail sent between two dates.
+     *
+     * @param object $query
+     * @param object $startDate
+     * @param object $endDate
+     *
+     * @return mixed
+     */
+    public function scopeSentBetween($query, $startDate, $endDate)
+    {
+        return $query->whereBetween($this->getTable() . '.created_at', [$startDate, $endDate]);
+    }
 
     /**
      * Deletes tracking data based on config settings.
