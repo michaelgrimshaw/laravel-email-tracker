@@ -3,7 +3,7 @@
 namespace MichaelGrimshaw\MailTracker;
 
 use Illuminate\Support\ServiceProvider;
-use MichaelGrimshaw\MailTracker\Stats\MailTrackerStats;
+use MichaelGrimshaw\MailTracker\stats\MailTrackerStats;
 
 /**
  * Class MailTrackerServiceProvider
