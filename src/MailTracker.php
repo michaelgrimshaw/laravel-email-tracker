@@ -142,7 +142,7 @@ class MailTracker extends Mailer
      */
     public function queue($view, $queue = null)
     {
-        $this->tracker->queue = is_null($queue) ? $this->queue : $queue;
+        $this->tracker->queue = $view->queue;
 
         return parent::queue($view, $queue);
     }
