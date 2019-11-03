@@ -125,5 +125,12 @@ return [
         'email_tracker_event' => 'email_tracker_event'
 
     ],
+    
+    
+    /*
+     * When Tracking mail the following string will be replaced with the
+     * tracking id in the body of the email.
+     */
+    'tracker_id_replacement' => '##tracker_id##',
 
 ];
