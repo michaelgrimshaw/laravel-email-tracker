@@ -115,6 +115,10 @@ class MailTracker extends Mailer
         if ($this->tracker->enabled) {
             $headerData = $this->getHeaderData();
 
+            $body = str_replace(config('mailtracker.tracker_id_replacement'), $headerData['unique_args']['tracker_id'], $swiftMessage->getBody());
+
+            $swiftMessage->setBody($body);
+
             $header = $this->asString($headerData);
 
             $swiftMessage
@@ -142,7 +146,7 @@ class MailTracker extends Mailer
      */
     public function queue($view, $queue = null)
     {
-        $this->tracker->queue = $view->queue;
+        $this->tracker->queue = is_null($queue) ? $this->queue : $queue;
 
         return parent::queue($view, $queue);
     }
