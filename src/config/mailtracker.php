@@ -132,5 +132,10 @@ return [
      * tracking id in the body of the email.
      */
     'tracker_id_replacement' => '##tracker_id##',
+    
+    'header_details' => [
+        'api'    => 'X-SMTPAPI',
+        'header' => 'unique_args'
+    ],
 
 ];
