@@ -115,7 +115,7 @@ class MailTracker extends Mailer
         if ($this->tracker->enabled) {
             $headerData = $this->getHeaderData();
 
-            $body = str_replace(config('mailtracker.tracker_id_replacement'), $headerData['unique_args']['tracker_id'], $swiftMessage->getBody());
+            $body = str_replace(config('mailtracker.tracker_id_replacement'), $headerData[config('mailtracker.header_details.header')]['tracker_id'], $swiftMessage->getBody());
 
             $swiftMessage->setBody($body);
 
@@ -123,7 +123,7 @@ class MailTracker extends Mailer
 
             $swiftMessage
                 ->getHeaders()
-                ->addTextHeader('X-SMTPAPI', $header);
+                ->addTextHeader(config('mailtracker.header_details.api'), $header);
 
             if (config('mailtracker.tracking_cleaner.enabled')) {
                 TrackedMail::clean();
@@ -160,7 +160,7 @@ class MailTracker extends Mailer
     {
         $trackerId = $this->storeTracker();
 
-        $header['unique_args'] = [
+        $header[config('mailtracker.header_details.header')] = [
             'tracker_id' => $trackerId
         ];
 
