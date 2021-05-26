@@ -6,7 +6,7 @@ use http\Exception\InvalidArgumentException;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Mail\Mailable;
+use Illuminate\Contracts\Mail\Mailable;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\PendingMail;
 
