@@ -2,8 +2,8 @@
 
 namespace MichaelGrimshaw\MailTracker\Events;
 
-use MichaelGrimshaw\MailTracker\TrackedMail;
-use MichaelGrimshaw\MailTracker\TrackedMailEvent;
+use MichaelGrimshaw\MailTracker\Models\TrackedMail;
+use MichaelGrimshaw\MailTracker\Models\TrackedMailEvent;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
