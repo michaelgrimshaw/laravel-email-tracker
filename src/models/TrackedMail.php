@@ -1,6 +1,6 @@
 <?php
 
-namespace MichaelGrimshaw\MailTracker;
+namespace MichaelGrimshaw\MailTracker\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

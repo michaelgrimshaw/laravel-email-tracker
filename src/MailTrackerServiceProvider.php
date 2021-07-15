@@ -5,7 +5,7 @@ namespace MichaelGrimshaw\MailTracker;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use MichaelGrimshaw\MailTracker\stats\MailTrackerStats;
+use MichaelGrimshaw\MailTracker\Stats\MailTrackerStats;
 
 /**
  * Class MailTrackerServiceProvider
@@ -23,7 +23,6 @@ class MailTrackerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
-        $this->loadRoutesFrom(__DIR__ . '/routes/routes.php');
 
         $this->app->alias('mail-tracker', MailTracker::class);
         $this->app->singleton('mail-tracker', function ($app) {

@@ -94,7 +94,7 @@ return [
          * is often just the "TrackedMail" model but you may use whatever you like.
          */
 
-        'email_tracker' => MichaelGrimshaw\MailTracker\TrackedMail::class,
+        'email_tracker' => MichaelGrimshaw\MailTracker\Models\TrackedMail::class,
 
         /*
          * When tracking mail from this package, we need to know which
@@ -102,7 +102,7 @@ return [
          * is often just the "TrackedMail" model but you may use whatever you like.
          */
 
-        'email_tracker_event' => MichaelGrimshaw\MailTracker\TrackedMailEvent::class,
+        'email_tracker_event' => MichaelGrimshaw\MailTracker\Models\TrackedMailEvent::class,
 
     ],
 

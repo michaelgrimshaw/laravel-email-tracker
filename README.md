@@ -32,7 +32,7 @@ This package can be used in Laravel 5.5 or higher.
 You can install the package via composer:
 
 ``` bash
-composer require michaelgrimshaw/laravel-email-tracker
+composer require hamdallah90/laravel-email-tracker
 ```
 
 In Laravel 5.5 the service provider will automatically get registered. In older versions of the framework just add the service provider in `config/app.php` file:
@@ -61,13 +61,56 @@ You can publish the config file with:
 php artisan vendor:publish --provider="MichaelGrimshaw\MailTracker\MailTrackerServiceProvider" --tag="config"
 ```
 
+Add this line to your router file
+```php
+
+use MichaelGrimshaw\MailTracker\MailTrackerController;
+
+Route::post('/api/email-tracker/event-hook', MailTrackerController::class . '@processEvent');
+```
+
+Or you can override MailTrackerController 
+Ex:
+
+```php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use MichaelGrimshaw\MailTracker\Models\TrackedMailEvent;
+use MichaelGrimshaw\MailTracker\MailTrackerController as MainMailTrackerController;
+
+class MailTrackerController extends MainMailTrackerController
+{
+    /**
+     * Iterates over Event data.
+     *
+     * @return void
+     */
+    public function processEvent()
+    {
+        if (config('services.sendgrid.signing_secret') != request('secret', 'default_value')) {
+            return response()->json(['error' => 'The secret validation failed'], 400);
+        }
+
+        if (empty($this->json)) {
+            return response()->json(['error' => 'Empty Data'], 400);
+        }
+
+        parent::processEvent();
+    }
+}
+```
+
+
 ## Usage
 
-First, add the `MichaelGrimshaw\MailTracker\TrackableTrait` trait to your `User` model(s) and link model(s):
+First, add the `MichaelGrimshaw\MailTracker\Traits\TrackableTrait` trait to your `User` model(s) and link model(s):
 
 ```php
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use MichaelGrimshaw\MailTracker\TrackableTrait;
+use MichaelGrimshaw\MailTracker\Traits\TrackableTrait;
 
 class User extends Authenticatable
 {

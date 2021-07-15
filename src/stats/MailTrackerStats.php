@@ -1,6 +1,6 @@
 <?php
 
-namespace MichaelGrimshaw\MailTracker\stats;
+namespace MichaelGrimshaw\MailTracker\Stats;
 
 use Carbon\Carbon;
 use MichaelGrimshaw\MailTracker\TrackedMail;
