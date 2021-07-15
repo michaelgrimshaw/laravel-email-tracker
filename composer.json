@@ -1,5 +1,5 @@
 {
-    "name": "michaelgrimshaw/laravel-email-tracker",
+    "name": "hamdallah90/laravel-email-tracker",
     "type": "library",
     "description": "A package to track sent mail and listen to webhook events",
     "keywords": [
@@ -10,13 +10,19 @@
         "sendgrid",
         "sparkpost"
     ],
-    "homepage": "https://github.com/michaelgrimshaw/laravel-email-tracker",
+    "homepage": "https://github.com/hamdallah90/laravel-email-tracker",
     "license": "MIT",
     "authors": [
         {
             "name": "Michael Grimshaw",
             "email": "hello@michaelgrimshaw.co.uk",
             "homepage": "http://www.michaelgrimshaw.co.uk",
+            "role": "Developer"
+        },
+        {
+            "name": "Hamdallah Jodah",
+            "email": "hamdallahjodah@gmail.com",
+            "homepage": "http://www.remboo.com",
             "role": "Developer"
         }
     ],
